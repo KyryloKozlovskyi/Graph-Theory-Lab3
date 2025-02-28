@@ -88,3 +88,13 @@ def getDegreeOfAdjacentVertices(V, E):
 # Test the function
 print("\nDegrees of adjacent vertices for G1:")
 print(getDegreeOfAdjacentVertices(V1, E1))
+
+# Exercise 4
+# Create another function which converts from the dictionary, to an ordered list of lists of
+# the values (not the keys).
+def convertDictToList(D):
+    tmp = [v for v in D.values()]
+    return sorted(tmp)
+
+print("\nConverted dictionary to list:")
+print(convertDictToList(getDegreeOfAdjacentVertices(V1, E1)))
