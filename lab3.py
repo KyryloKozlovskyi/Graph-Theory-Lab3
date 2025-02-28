@@ -48,15 +48,22 @@ def areGraphsIsomorphic(G1, G2):
     
     return True
 
+# Test cases
+print("Are G1 and G2 isomorphic?", areGraphsIsomorphic(G1, G2))
+
+# Exercise 2
+# Create a function which returns a dictionary of the of adjacent vertices.
+def getAdjacentVertices(V, E):
+    # Initialize an empty dictionary for adjacent vertices
+    adj_dict = {v: set() for v in V}
+    
+    # Loop through each edge and add the adjacent vertices
+    for edge in E:
+        v1, v2 = list(edge)
+        adj_dict[v1].add(v2)
+        adj_dict[v2].add(v1)
+    
+    return adj_dict
 
 # Test cases
-print("Number of vertices in G1:", getNumberOfVertices(G1))
-print("Number of edges in G1:", getNumberOfEdges(G1))
-print("Degree of in G1:", getDegree(G1[0], G1[1]))
-print("Degree sequence of G1:", getDegreeSequence(getDegree(G1[0], G1[1])))
-print("-----------------------------------------------------------------")
-print("Number of vertices in G2:", getNumberOfVertices(G2))
-print("Number of edges in G2:", getNumberOfEdges(G2))
-print("Degree of in G2:", getDegree(G2[0], G2[1]))
-print("Degree sequence of G2:", getDegreeSequence(getDegree(G2[0], G2[1])))
-print("Are G1 and G2 isomorphic?", areGraphsIsomorphic(G1, G2))
+print(getAdjacentVertices(V1, E1))
