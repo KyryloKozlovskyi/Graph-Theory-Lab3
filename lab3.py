@@ -93,8 +93,38 @@ print(getDegreeOfAdjacentVertices(V1, E1))
 # Create another function which converts from the dictionary, to an ordered list of lists of
 # the values (not the keys).
 def convertDictToList(D):
-    tmp = [v for v in D.values()]
+    tmp = [sorted(v) for v in D.values()]  # Sort each inner list
     return sorted(tmp)
 
 print("\nConverted dictionary to list:")
-print(convertDictToList(getDegreeOfAdjacentVertices(V1, E1)))
+print(convertDictToList(getDegreeOfAdjacentVertices(V2, E2)))
+
+# Exercise 5
+# Apply that function to the answers from Exercise 3, and decide whether the graphs
+# could be isomorphic.
+
+# Apply the function from Exercise 3 to G1 and G2
+degrees_adj_G1 = getDegreeOfAdjacentVertices(V1, E1)
+degrees_adj_G2 = getDegreeOfAdjacentVertices(V2, E2)
+
+# Debug: Check degree sequences before sorting
+print("Degrees of adjacent vertices for G1 before sorting:")
+print(degrees_adj_G1)
+print("Degrees of adjacent vertices for G2 before sorting:")
+print(degrees_adj_G2)
+
+# Convert the results into ordered lists of lists (using the function from Exercise 4)
+ordered_list_G1 = convertDictToList(degrees_adj_G1)
+ordered_list_G2 = convertDictToList(degrees_adj_G2)
+
+# Debug: Check sorted lists
+print("\nOrdered list of degrees of adjacent vertices for G1:")
+print(ordered_list_G1)
+print("Ordered list of degrees of adjacent vertices for G2:")
+print(ordered_list_G2)
+
+# Compare the two ordered lists to decide if the graphs could be isomorphic
+if ordered_list_G1 == ordered_list_G2:
+    print("\nThe graphs COULD BE isomorphic.")
+else:
+    print("\nThe graphs COULD NOT BE isomorphic")
