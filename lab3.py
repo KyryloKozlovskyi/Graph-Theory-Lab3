@@ -67,3 +67,24 @@ def getAdjacentVertices(V, E):
 
 # Test cases
 print(getAdjacentVertices(V1, E1))
+
+# Exercise 3
+# Create a function which returns a dictionary of the degrees of adjacent vertices. (Use the answer from question 2)
+def getDegreeOfAdjacentVertices(V, E):
+    r_dict = {v: [] for v in V}
+    adj_dict = getAdjacentVertices(V, E)
+    degree_dict = getDegree(V, E)
+    
+    # For each vertex and its adjacency set
+    for vertex, adj_vertices in adj_dict.items():
+        # Get degrees of adjacent vertices
+        degrees = [degree_dict[adj_v] for adj_v in adj_vertices]
+        # Sort in descending order
+        degrees.sort(reverse=True)
+        r_dict[vertex] = degrees
+    
+    return r_dict
+
+# Test the function
+print("\nDegrees of adjacent vertices for G1:")
+print(getDegreeOfAdjacentVertices(V1, E1))
